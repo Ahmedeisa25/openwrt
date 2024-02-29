@@ -182,6 +182,32 @@ define Build/zyxel-nwa-fit
 	@mv $@.new $@
 endef
 
+define Device/KMO7-708H.EISA
+  $(Device/nand)
+  $(Device/uimage-lzma-loader)
+  IMAGE_SIZE := 129280k
+  DEVICE_VENDOR := RAISECOM
+  DEVICE_MODEL := KMO7-708H
+  DEVICE_VARIANT := X.00
+  DEVICE_ALT0_VENDOR := KT
+  DEVICE_ALT0_MODEL := 708H
+  DEVICE_PACKAGES := kmod-mt7615-firmware kmod-usb3 kmod-usb-ledtrig-usbport
+endef
+TARGET_DEVICES += KMO7-708H.EISA
+
+define Device/KMO7-708H.ABOZIAD
+  $(Device/nand)
+  $(Device/uimage-lzma-loader)
+  IMAGE_SIZE := 129280k
+  DEVICE_VENDOR := RAISECOM
+  DEVICE_MODEL := KMO7-708H
+  DEVICE_VARIANT := X.01
+  DEVICE_ALT0_VENDOR := KT
+  DEVICE_ALT0_MODEL := 708H
+  DEVICE_PACKAGES := kmod-mt7615-firmware kmod-usb3 kmod-usb-ledtrig-usbport
+endef
+TARGET_DEVICES += KMO7-708H.ABOZIAD
+
 define Device/dsa-migration
   DEVICE_COMPAT_VERSION := 1.1
   DEVICE_COMPAT_MESSAGE := Config cannot be migrated from swconfig to DSA
